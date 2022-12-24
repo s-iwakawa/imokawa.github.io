@@ -1,3 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = "https://s-iwakawa/s-iwakawa.github.io/imonicamp-iconring/"
 languageCode = 'en-us'
 title = 'My New Hugo Site'
+publishDir = "docs"
