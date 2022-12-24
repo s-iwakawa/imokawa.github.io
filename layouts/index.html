@@ -1,0 +1,42 @@
+{{ partial "header" . }}
+
+<main>
+	<div class="main-wrapper">
+	    <div class="container preview-wrapper">
+				<canvas id="canvas" width="400" height="400"></canvas>
+				<input id="uploader" class="uploader" type="file" name="test" accept="image/*, png/*">
+				<button id="download" class="download-button" style="visibility: hidden">download</button>
+	    </div>
+	    <div class="container parts-wrapper">
+			<div class="parts-list">
+				<p>2. リングを選択する</p>
+				<div class="icon-wrapper">
+					<div class="icon-list">
+						<input type="radio" id="icon-ring-1" class="radio-button ring" name="ring" value="icon-ring-1" disabled>
+						<label for="icon-ring-1">icon-1</label>
+					</div>
+					<div class="icon-list">
+						<input type="radio" id="icon-ring-2" class="radio-button ring" name="ring" value="icon-ring-2" disabled>
+						<label for="icon-ring-2">icon-2</label>
+					</div>
+				</div>
+			</div>
+			<div class="parts-list">
+				<p>3. パーツを選択する</p>
+				<div class="icon-wrapper">
+					<div class="icon-list">
+						<input type="radio" id="icon-parts-1" class="radio-button parts" name="parts" value="icon-parts-1" disabled>
+						<label for="icon-parts-1">icon-1</label>
+					</div>
+					<div class="icon-list">
+						<input type="radio" id="icon-parts-2" class="radio-button parts" name="parts" value="icon-parts-2" disabled>
+						<label for="icon-parts-2">icon-2</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<script src="/script.js"></script>
+
+{{ partial "footer" . }}
