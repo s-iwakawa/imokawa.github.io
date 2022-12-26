@@ -1,7 +1,7 @@
 ///////////////
 ///定数の定義
-const ringSrcArray = ["/img/color_colorful.png", "/img/color_black.png"];
-const partsSrcArray = ["/img/etc_cat.png", "/img/etc_bird.png"];
+const ringSrcArray = ["./img/color_colorful.png", "./img/color_black.png"];
+const partsSrcArray = ["./img/etc_cat.png", "./img/etc_bird.png"];
 const OFFSET = 15;   ///クロップする円よりも内側にカットするためのオフセット (px)
 const ring = document.getElementsByClassName('ring');
 const parts = document.getElementsByClassName('parts');

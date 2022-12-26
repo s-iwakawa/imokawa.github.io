@@ -121,7 +121,7 @@ input[type=radio][value="icon-ring-1"]+label:before {
     background-image: url(./img/color_colorful.png);
 }
 input[type=radio][value="icon-ring-2"]+label:before {
-    background-image: url(/img/color_black.png);
+    background-image: url(./img/color_black.png);
 }
 /* パーツ */
 input[type=radio][value="icon-parts-1"]+label:before {
