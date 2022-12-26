@@ -1,4 +1,8 @@
-baseURL = "https://s-iwakawa.github.io/imonicamp-iconring/"
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = "https://s-iwakawa.github.io"
+languageCode = 'ja'
+title = 'imoniCamp icon ring creator'
+contentDir = "post"
+disableKinds = ["RSS", "sitemap"]
 publishDir = "docs"
+[taxonomies]
+tag = "tags"
