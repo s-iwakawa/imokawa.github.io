@@ -1,4 +1,4 @@
-baseURL = "https://imokawa.github.io"
+baseURL = "https://s-iwakawa.github.io/imokawa.github.io"
 languageCode = 'ja'
 title = 'imoniCamp icon ring creator'
 contentDir = "post"
