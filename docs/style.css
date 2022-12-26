@@ -1,0 +1,132 @@
+@font-face {
+    font-family: yomogi;
+    src: url(./Yomogi-Regular.ttf   );
+}
+
+body {
+    margin: 0;
+    background-color: beige;
+    font-family: yomogi;
+}
+.main-wrapper {
+    display: flex;
+    margin: 10px 10px;
+    max-width: 1920px;
+}
+
+.container {
+    margin: 0 5px;
+    width: 50%;
+    min-width: 400px
+}
+
+.site-title {
+    background-color: black;
+    color: #fff;
+}
+footer {
+    text-align: center;
+    background-color: black;
+    color: #fff;
+    margin: 0px;
+    padding: 5px 0px;
+}
+.site-title {
+    text-align: center;
+    margin: 0px;
+}
+.preview-wrapper {
+    display: block;
+    text-align: center;
+}
+.uploader {
+    margin: 5px auto;
+    display: block;
+}
+.download-button {
+    margin: 5px auto;
+    display: block;
+    width: 400px;
+    height: 50px;
+    color: #fff;
+    background-color: #0759de;
+    border-radius: 100vh;
+}
+.download-button:hover {
+    color: #fff;
+    background-color: #0042ad;
+}
+
+
+/* ここから右画面用 */
+.parts-wrapper {
+    margin-top: 0;
+    height: 100%;
+    background-color: #fff;
+}
+.parts-list {
+    display: block;
+    padding-left: 0;
+    margin-top: 0;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    border: solid 2px #ddd;
+}
+.parts-list p {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    background-color: #ddd;
+    margin: auto;
+    padding: 10px;
+}
+
+.icon-wrapper {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    margin: auto;
+    text-align: center;
+}
+.icon-wrapper div {
+    margin: auto;
+    padding: 20px;
+}
+.icon-wrapper img {
+    width: 100%;
+    width: 100%;
+    padding: 5px;
+    margin: auto;
+}
+.icon-list {
+    text-align: center;
+    display: block;
+}
+.radio-button {
+    margin: 5px;
+    text-align: center;
+}
+
+input[type=radio]+label:before{
+    content: "";
+    display: inline-block;
+    background-size: contain;
+    width: 125px;
+    height: 125px;
+    padding: 10px;
+}
+
+/* リング */
+input[type=radio][value="icon-ring-1"]+label:before {
+    background-image: url(./img/color_colorful.png);
+}
+input[type=radio][value="icon-ring-2"]+label:before {
+    background-image: url(/img/color_black.png);
+}
+/* パーツ */
+input[type=radio][value="icon-parts-1"]+label:before {
+    background-image: url(./img/etc_cat.png);
+}
+input[type=radio][value="icon-parts-2"]+label:before {
+    background-image: url(./img/etc_bird.png);
+}

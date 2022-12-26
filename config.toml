@@ -1,8 +1,6 @@
-baseURL = "https://s-iwakawa.github.io"
+baseURL = "https://imokawa.github.io"
 languageCode = 'ja'
 title = 'imoniCamp icon ring creator'
 contentDir = "post"
 disableKinds = ["RSS", "sitemap"]
 publishDir = "docs"
-[taxonomies]
-tag = "tags"

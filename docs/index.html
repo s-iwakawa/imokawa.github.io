@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta name="generator" content="Hugo 0.108.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>imoniCamp icon ring creator</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="site-header">
+      <h1 class="site-title">imoniCampアイコンリング制作サイト</h1>
+    </div>
+    <div class="site-header-logo">
+      <img src="https://dl.qloba.info/uploads/projects/photo/photo/13729/b900cd8b-6995-46ab-8bdf-9cfdf5fe81d4.png" width="100%">
+    </div>
+  </header>
+
+<main>
+	<div class="main-wrapper">
+	    <div class="container preview-wrapper">
+				<canvas id="canvas" width="400" height="400"></canvas>
+				<input id="uploader" class="uploader" type="file" name="test" accept="image/*, png/*">
+				<button id="download" class="download-button" style="visibility: hidden">download</button>
+	    </div>
+	    <div class="container parts-wrapper">
+			<div class="parts-list">
+				<p>2. リングを選択する</p>
+				<div class="icon-wrapper">
+					<div class="icon-list">
+						<input type="radio" id="icon-ring-1" class="radio-button ring" name="ring" value="icon-ring-1" disabled>
+						<label for="icon-ring-1">icon-1</label>
+					</div>
+					<div class="icon-list">
+						<input type="radio" id="icon-ring-2" class="radio-button ring" name="ring" value="icon-ring-2" disabled>
+						<label for="icon-ring-2">icon-2</label>
+					</div>
+				</div>
+			</div>
+			<div class="parts-list">
+				<p>3. パーツを選択する</p>
+				<div class="icon-wrapper">
+					<div class="icon-list">
+						<input type="radio" id="icon-parts-1" class="radio-button parts" name="parts" value="icon-parts-1" disabled>
+						<label for="icon-parts-1">icon-1</label>
+					</div>
+					<div class="icon-list">
+						<input type="radio" id="icon-parts-2" class="radio-button parts" name="parts" value="icon-parts-2" disabled>
+						<label for="icon-parts-2">icon-2</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<script src="/script.js"></script>
+
+<footer id="footer">
+    <div class="site-footer">
+        <p>
+            created by いもキャンメンバー
+        </p>
+    </div>
+</footer>
+</body>
+</html>
