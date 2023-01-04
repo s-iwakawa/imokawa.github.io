@@ -3,6 +3,36 @@
     src: url(./Yomogi-Regular.ttf   );
 }
 
+/* pc用CSS*/
+@media(min-width: 751px) {
+    .main-wrapper {
+        margin: 10px 10px;
+    }
+}
+
+/* スマートフォン用CSS*/
+@media(400px < width <= 750px) {
+    .main-wrapper {
+        flex-wrap: wrap;
+        margin: auto 0;
+    }
+}
+
+@media(max-width: 400px) {
+    header {
+        width: 400px;
+    }
+    .main-wrapper {
+        flex-wrap: wrap;
+        margin: auto 0;
+    }
+    footer {
+        width: 400px;
+    }
+}
+
+
+
 body {
     margin: 0;
     background-color: beige;
@@ -10,12 +40,9 @@ body {
 }
 .main-wrapper {
     display: flex;
-    margin: 10px 10px;
-    max-width: 1920px;
 }
 
 .container {
-    margin: 0 5px;
     width: 50%;
     min-width: 400px
 }
@@ -23,6 +50,8 @@ body {
 .site-title {
     background-color: black;
     color: #fff;
+    text-align: center;
+    margin: 0px;
 }
 footer {
     text-align: center;
@@ -30,10 +59,6 @@ footer {
     color: #fff;
     margin: 0px;
     padding: 5px 0px;
-}
-.site-title {
-    text-align: center;
-    margin: 0px;
 }
 .preview-wrapper {
     display: block;
@@ -61,6 +86,7 @@ footer {
 /* ここから右画面用 */
 .parts-wrapper {
     margin-top: 0;
+    width: 100%;
     height: 100%;
     background-color: #fff;
 }
@@ -84,13 +110,13 @@ footer {
 
 .icon-wrapper {
     display: grid;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
     margin: auto;
     text-align: center;
 }
 .icon-wrapper div {
     margin: auto;
-    padding: 20px;
+    padding: 5px;
 }
 .icon-wrapper img {
     width: 100%;
@@ -103,25 +129,51 @@ footer {
     display: block;
 }
 .radio-button {
-    margin: 5px;
+    margin: 5px auto;
     text-align: center;
+    display: block;
 }
 
 input[type=radio]+label:before{
     content: "";
-    display: inline-block;
+    display: block;
     background-size: contain;
-    width: 125px;
-    height: 125px;
-    padding: 10px;
+    background-repeat: no-repeat;
+    width: 8vw;
+    height: 8vw;
+    padding: 5px;
 }
 
 /* リング */
 input[type=radio][value="icon-ring-1"]+label:before {
-    background-image: url(./img/color_colorful.png);
+    background-image: url(./img/color_1.png);
 }
 input[type=radio][value="icon-ring-2"]+label:before {
-    background-image: url(./img/color_black.png);
+    background-image: url(./img/color_2.png);
+}
+input[type=radio][value="icon-ring-3"]+label:before {
+    background-image: url(./img/color_3.png);
+}
+input[type=radio][value="icon-ring-4"]+label:before {
+    background-image: url(./img/color_4.png);
+}
+input[type=radio][value="icon-ring-5"]+label:before {
+    background-image: url(./img/color_5.png);
+}
+input[type=radio][value="icon-ring-6"]+label:before {
+    background-image: url(./img/color_6.png);
+}
+input[type=radio][value="icon-ring-7"]+label:before {
+    background-image: url(./img/color_7.png);
+}
+input[type=radio][value="icon-ring-8"]+label:before {
+    background-image: url(./img/color_8.png);
+}
+input[type=radio][value="icon-ring-9"]+label:before {
+    background-image: url(./img/color_9.png);
+}
+input[type=radio][value="icon-ring-10"]+label:before {
+    background-image: url(./img/color_10.png);
 }
 /* パーツ */
 input[type=radio][value="icon-parts-1"]+label:before {
@@ -129,4 +181,7 @@ input[type=radio][value="icon-parts-1"]+label:before {
 }
 input[type=radio][value="icon-parts-2"]+label:before {
     background-image: url(./img/etc_bird.png);
+}
+input[type=radio][value="icon-parts-3"]+label:before {
+    background-image: url(./img/etc_giraffe.png);
 }
