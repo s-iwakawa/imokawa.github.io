@@ -6,8 +6,11 @@
 /* pc用CSS*/
 @media(min-width: 751px) {
     .main-wrapper {
-        margin: 10px 10px;
+      margin: 0px 5px;
     }
+		.container {
+			margin: 5px;
+		}
 }
 
 /* スマートフォン用CSS*/
@@ -65,7 +68,7 @@ footer {
     text-align: center;
 }
 .uploader {
-    margin: 5px auto;
+    margin: 10px auto;
     display: block;
 }
 .download-button {
@@ -110,12 +113,13 @@ footer {
 
 .icon-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+		grid-auto-columns: 150px;
+    grid-template-columns: repeat(5, minmax(8%, 1fr));
     margin: auto;
     text-align: center;
 }
 .icon-wrapper div {
-    margin: auto;
+    margin: 5px auto;
     padding: 5px;
 }
 .icon-wrapper img {
@@ -127,6 +131,7 @@ footer {
 .icon-list {
     text-align: center;
     display: block;
+		margin: 5px;
 }
 .radio-button {
     margin: 5px auto;
@@ -139,9 +144,9 @@ input[type=radio]+label:before{
     display: block;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 8vw;
-    height: 8vw;
-    padding: 5px;
+    width: 7vw;
+    height: 7vw;
+		margin: auto;
 }
 
 /* リング */
@@ -184,4 +189,7 @@ input[type=radio][value="icon-parts-2"]+label:before {
 }
 input[type=radio][value="icon-parts-3"]+label:before {
     background-image: url(./img/etc_giraffe.png);
+}
+input[type=radio][value="icon-parts-4"]+label:before {
+	background-image: url(./img/etc_none.png);
 }

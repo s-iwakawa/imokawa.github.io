@@ -15,9 +15,9 @@ const ringSrcArray = [
 const partsSrcArray = [
 	"./img/etc_cat.png",
 	"./img/etc_bird.png",
-	"./img/etc_giraffe.png"
+	"./img/etc_giraffe.png",
+	"./img/etc_none.png"
 ];
-const OFFSET = 15;   ///クロップする円よりも内側にカットするためのオフセット (px)
 const ring = document.getElementsByClassName('ring');
 const parts = document.getElementsByClassName('parts');
 
@@ -66,7 +66,7 @@ canvas.fillRect(0, 0, canvasElement.width, canvasElement.height);
 canvas.fillStyle = 'rgb(255, 255, 255)';
 canvas.font = '20px "yomogi"';
 canvas.textAlign = 'center';
-canvas.fillText('1. 画像をアップロードしてください', canvasElement.width / 2, canvasElement.height / 2);
+canvas.fillText('画像をアップロードしてください', canvasElement.width / 2, canvasElement.height / 2);
 
 
 ///////////////
@@ -296,7 +296,7 @@ uploader.onchange = () => {
 				cropImageCanvas.drawImage(img, 0, 0, img.width, img.height, (canvasElement.width - img.width * drawScale * mouseWheelRatio) / 2 + displacementX, (canvasElement.height - img.height * drawScale * mouseWheelRatio) / 2 + displacementY, img.width * drawScale * mouseWheelRatio, img.height * drawScale * mouseWheelRatio);   ///drawScaleをかけた画像をcanvasに描画
     		cropImageCanvas.globalCompositeOperation = 'destination-in';
     		cropImageCanvas.beginPath();
-    		cropImageCanvas.arc(cropImageElement.width / 2, cropImageElement.height / 2, cropImageElement.width / 2 - OFFSET, 0, 2 * Math.PI);
+    		cropImageCanvas.arc(cropImageElement.width / 2, cropImageElement.height / 2, cropImageElement.width / 2, 0, 2 * Math.PI);
     		cropImageCanvas.fillStyle = 'rgb(10, 10, 10, 1)';
     		cropImageCanvas.fill();
     		cropImageCanvas.closePath();
@@ -321,8 +321,3 @@ uploader.onchange = () => {
 	};
 	fileReader.readAsDataURL(uploadedFile[0]);
 };
-
-// let number = 0;
-// document.ontouchstart = (event) => {
-// 	number = 1;
-// }
