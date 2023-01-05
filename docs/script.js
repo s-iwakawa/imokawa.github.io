@@ -45,6 +45,13 @@ const showCropFrame = (targetCanvasElement, targetCanvas) => {
   targetCanvas.fill('evenodd');
 };
 
+//canvasにリング/パーツを描画する
+const addImageToCanvas = (parentCanvas, imgSrc) => {
+	const iconImage = new Image();
+	iconImage.src = imgSrc;
+	parentCanvas.drawImage(iconImage, 0, 0, iconImage.width, iconImage.height, 0, 0, iconImage.width, iconImage.height);
+}
+
 const calculateDrawScale = (aspectRatio, img, targetCanvasElement) => {
 	if (aspectRatio > 1) {
 		return (img.width > targetCanvasElement.width) ? targetCanvasElement.width / img.width
@@ -59,14 +66,14 @@ const calculateDrawScale = (aspectRatio, img, targetCanvasElement) => {
 
 ///////////////
 ///canvasの初期値設定
-const canvasElement = document.getElementById('canvas');
-const canvas = canvasElement.getContext('2d');
-canvas.fillStyle = 'rgb(0, 0, 0, 1)';
-canvas.fillRect(0, 0, canvasElement.width, canvasElement.height);
-canvas.fillStyle = 'rgb(255, 255, 255)';
-canvas.font = '20px "yomogi"';
-canvas.textAlign = 'center';
-canvas.fillText('画像をアップロードしてください', canvasElement.width / 2, canvasElement.height / 2);
+const warningCanvasElement = document.getElementById('canvas');
+const warningCanvas = warningCanvasElement.getContext('2d');
+warningCanvas.fillStyle = 'rgb(0, 0, 0, 1)';
+warningCanvas.fillRect(0, 0, warningCanvasElement.width, warningCanvasElement.height);
+warningCanvas.fillStyle = 'rgb(255, 255, 255)';
+warningCanvas.font = '20px "yomogi"';
+warningCanvas.textAlign = 'center';
+warningCanvas.fillText('画像をアップロードしてください', warningCanvasElement.width / 2, warningCanvasElement.height / 2);
 
 
 ///////////////
@@ -75,6 +82,15 @@ const downloadButton = document.getElementById('download');
 const uploader = document.getElementById('uploader');
 
 uploader.onchange = () => {
+	///////////////
+	///加工用のcanvasを生成してwarningCanvasと入れ替える
+	const canvasElement = document.createElement('canvas');
+	canvasElement.width = warningCanvasElement.width;
+	canvasElement.height = warningCanvasElement.height;
+	const canvas = canvasElement.getContext('2d');
+	document.getElementsByClassName('preview-wrapper')[0].removeChild(document.getElementsByTagName('canvas')[0]);
+	document.getElementsByClassName('preview-wrapper')[0].prepend(canvasElement);
+
 	initializeCanvas(canvasElement, canvas);
 
 	///////////////
@@ -105,11 +121,17 @@ uploader.onchange = () => {
 			canvas.drawImage(img, 0, 0, img.width, img.height, (canvasElement.width - img.width * drawScale) / 2, (canvasElement.height - img.height * drawScale) / 2, img.width * drawScale, img.height * drawScale);   ///drawScaleをかけた画像をcanvasに描画
 			showCropFrame(canvasElement, canvas);
 
-			const addImageToCanvas = (parentCanvas, imgSrc) => {
-				const iconImage = new Image();
-				iconImage.src = imgSrc;
-				parentCanvas.drawImage(iconImage, 0, 0, iconImage.width, iconImage.height, 0, 0, iconImage.width, iconImage.height);
-			}
+			//再読み込みされたとき用の処理
+			Object.keys(ring).forEach((key) => {
+				if (ring[key].checked) {
+					addImageToCanvas(canvas, ringSrcArray[key]);
+				}
+			});
+			Object.keys(parts).forEach((key) => {
+				if (parts[key].checked) {
+					addImageToCanvas(canvas, partsSrcArray[key]);
+				}
+			});
 
 			for (let count = 0; count < ring.length; count++) {
 				ring[count].onclick = () => {
