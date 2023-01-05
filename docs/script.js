@@ -121,18 +121,6 @@ uploader.onchange = () => {
 			canvas.drawImage(img, 0, 0, img.width, img.height, (canvasElement.width - img.width * drawScale) / 2, (canvasElement.height - img.height * drawScale) / 2, img.width * drawScale, img.height * drawScale);   ///drawScaleをかけた画像をcanvasに描画
 			showCropFrame(canvasElement, canvas);
 
-			//再読み込みされたとき用の処理
-			Object.keys(ring).forEach((key) => {
-				if (ring[key].checked) {
-					addImageToCanvas(canvas, ringSrcArray[key]);
-				}
-			});
-			Object.keys(parts).forEach((key) => {
-				if (parts[key].checked) {
-					addImageToCanvas(canvas, partsSrcArray[key]);
-				}
-			});
-
 			for (let count = 0; count < ring.length; count++) {
 				ring[count].onclick = () => {
 					initializeCanvas(canvasElement, canvas);
