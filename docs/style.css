@@ -71,6 +71,10 @@ footer {
     margin: 10px auto;
     display: block;
 }
+#scale-bar {
+	margin-top: 5px;
+	width: 70%;
+}
 .download-button {
     margin: 5px auto;
     display: block;
