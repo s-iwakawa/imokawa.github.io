@@ -170,23 +170,15 @@ uploader.onchange = () => {
 						const rect = event.target.getBoundingClientRect();
 						const offsetX = event.changedTouches[0].clientX - rect.left;
 						const offsetY = event.changedTouches[0].clientY - rect.top;
+						displacementX = offsetX - coordinateX;
+						displacementY = offsetY - coordinateY;
 						if (event.changedTouches.length > 1) {
-							touchMoveArea = Math.abs(event.changedTouches[1].clientX - rect.left - offsetX) * Math.abs(event.changedTouches[1].clientY - rect.top -offsetY);
+							touchMoveArea = Math.abs(event.changedTouches[1].clientX - rect.left - offsetX) * Math.abs(event.changedTouches[1].clientY - rect.top - offsetY);
 							mouseWheelRatio = touchMoveArea / touchStartArea / 100;
 							if(mouseWheelRatio > 3) mouseWheelRatio = 3;
 							if(mouseWheelRatio < 0.1) mouseWheelRatio = 0.1;
-							canvas.drawImage(img, 0, 0, img.width, img.height, (canvasElement.width - img.width * drawScale * mouseWheelRatio) / 2 + displacementX, (canvasElement.height - img.height * drawScale * mouseWheelRatio) / 2 + displacementY, img.width * drawScale * mouseWheelRatio, img.height * drawScale * mouseWheelRatio);   ///drawScaleをかけた画像をcanvasに描画
-						} else {
-							displacementX = offsetX - coordinateX;
-							displacementY = offsetY - coordinateY;
-							canvas.drawImage(img, 0, 0, img.width, img.height, (canvasElement.width - img.width * drawScale * mouseWheelRatio) / 2 + displacementX, (canvasElement.height - img.height * drawScale * mouseWheelRatio) / 2 + displacementY, img.width * drawScale * mouseWheelRatio, img.height * drawScale * mouseWheelRatio);   ///drawScaleをかけた画像をcanvasに描画
-							if (ring[count].checked) addImageToCanvas(canvas, ringSrcArray[count]);
-							Object.keys(parts).forEach((key) => {
-								if (parts[key].checked) {
-									addImageToCanvas(canvas, partsSrcArray[key]);
-								}
-							});
 						}
+						canvas.drawImage(img, 0, 0, img.width, img.height, (canvasElement.width - img.width * drawScale * mouseWheelRatio) / 2 + displacementX, (canvasElement.height - img.height * drawScale * mouseWheelRatio) / 2 + displacementY, img.width * drawScale * mouseWheelRatio, img.height * drawScale * mouseWheelRatio);   ///drawScaleをかけた画像をcanvasに描画
 						showCropFrame(canvasElement, canvas);
 						if (ring[count].checked) addImageToCanvas(canvas, ringSrcArray[count]);
 						Object.keys(parts).forEach((key) => {
