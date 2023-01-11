@@ -144,7 +144,7 @@ uploader.onchange = () => {
 						const offsetY = (event.changedTouches) ? event.changedTouches[0].clientY - rect.top : event.offsetY;
 						coordinateX = offsetX - displacementX;
 						coordinateY = offsetY - displacementY;
-						if (event.changedTouches && event.changedTouches.length > 1) touchStartArea = Math.abs(event.changedTouches[0].clientX - rect.left - offsetX) * Math.abs(event.changedTouches[0].clientY - rect.top -offsetY);
+						if (event.changedTouches) touchStartArea = Math.abs(event.changedTouches[0].clientX - rect.left - offsetX) * Math.abs(event.changedTouches[0].clientY - rect.top -offsetY);
 						return false;
 					}
 					canvasElement.onmousemove = (event) => {
@@ -256,6 +256,7 @@ uploader.onchange = () => {
 						const offsetY = (event.changedTouches) ? event.changedTouches[0].clientY - rect.top : event.offsetY;
 						coordinateX = offsetX - displacementX;
 						coordinateY = offsetY - displacementY;
+						if (event.changedTouches) touchStartArea = Math.abs(event.changedTouches[0].clientX - rect.left - offsetX) * Math.abs(event.changedTouches[0].clientY - rect.top -offsetY);
 						return false;
 					}
 					canvasElement.onmousemove = (event) => {
@@ -283,6 +284,7 @@ uploader.onchange = () => {
 						const offsetY = event.changedTouches[0].clientY - rect.top;
 						if (event.changedTouches.length > 1) {
 							touchMoveArea = Math.abs(event.changedTouches[1].clientX - rect.left - offsetX) * Math.abs(event.changedTouches[1].clientY - rect.top -offsetY);
+							document.getElementById('counter').textContent = touchMoveArea;
 							mouseWheelRatio = touchMoveArea / touchStartArea;
 							if(mouseWheelRatio > 3) mouseWheelRatio = 3;
 							if(mouseWheelRatio < 0.1) mouseWheelRatio = 0.1;
