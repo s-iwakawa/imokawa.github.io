@@ -107,7 +107,7 @@ uploader.onchange = () => {
 			///////////////
 			///ラジオボタンとDLボタンの有効化
 			const radioButton = document.getElementsByClassName('radio-button');
-			for(let count = 0; count < radioButton.length; count++) radioButton[count].disabled = false;   //for分でラジオボタンのlength回disabledをfalseにする
+			for(let count = 0; count < radioButton.length; count++) radioButton[count].disabled = false;   //for分でラジオボタンのdisabledをfalseにする
 			scaleBar.disabled = false;
 			downloadButton.style.visibility = 'visible';
 
@@ -122,6 +122,20 @@ uploader.onchange = () => {
 			const drawScale = calculateDrawScale(aspectRatio, img, canvasElement);
 			canvas.drawImage(img, 0, 0, img.width, img.height, (canvasElement.width - img.width * drawScale) / 2, (canvasElement.height - img.height * drawScale) / 2, img.width * drawScale, img.height * drawScale);   ///drawScaleをかけた画像をcanvasに描画
 			showCropFrame(canvasElement, canvas);
+
+			scaleBar.onchange = (event) => {
+				const scale = event.target.value / 10;
+				mouseWheelRatio = scale;
+				initializeCanvas(canvasElement, canvas);
+				canvas.drawImage(img, 0, 0, img.width, img.height, (canvasElement.width - img.width * drawScale * mouseWheelRatio) / 2 + displacementX, (canvasElement.height - img.height * drawScale * mouseWheelRatio) / 2 + displacementY, img.width * drawScale * mouseWheelRatio, img.height * drawScale * mouseWheelRatio);   ///drawScaleをかけた画像をcanvasに描画
+				showCropFrame(canvasElement, canvas);
+				Object.keys(ring).forEach((key) => {
+					if (ring[key].checked) addImageToCanvas(canvas, ringSrcArray[key]);
+				});
+				Object.keys(parts).forEach((key) => {
+					if (parts[key].checked) addImageToCanvas(canvas, partsSrcArray[key]);
+				});
+			}
 
 			for (let count = 0; count < ring.length; count++) {
 				ring[count].onclick = () => {
@@ -207,19 +221,6 @@ uploader.onchange = () => {
 							}
 						});
 						return false;
-					}
-					scaleBar.onchange = (event) => {
-						const scale = event.target.value / 10;
-						mouseWheelRatio = scale;
-						initializeCanvas(canvasElement, canvas);
-						canvas.drawImage(img, 0, 0, img.width, img.height, (canvasElement.width - img.width * drawScale * mouseWheelRatio) / 2 + displacementX, (canvasElement.height - img.height * drawScale * mouseWheelRatio) / 2 + displacementY, img.width * drawScale * mouseWheelRatio, img.height * drawScale * mouseWheelRatio);   ///drawScaleをかけた画像をcanvasに描画
-						showCropFrame(canvasElement, canvas);
-						if (ring[count].checked) addImageToCanvas(canvas, ringSrcArray[count]);
-						Object.keys(parts).forEach((key) => {
-							if (parts[key].checked) {
-								addImageToCanvas(canvas, partsSrcArray[key]);
-							}
-						});
 					}
 				};
 			}
@@ -309,19 +310,6 @@ uploader.onchange = () => {
 						if (parts[count].checked) addImageToCanvas(canvas, partsSrcArray[count]);
 						return false;
 					}
-					scaleBar.onchange = (event) => {
-						const scale = event.target.value / 10;
-						mouseWheelRatio = scale;
-						initializeCanvas(canvasElement, canvas);
-						canvas.drawImage(img, 0, 0, img.width, img.height, (canvasElement.width - img.width * drawScale * mouseWheelRatio) / 2 + displacementX, (canvasElement.height - img.height * drawScale * mouseWheelRatio) / 2 + displacementY, img.width * drawScale * mouseWheelRatio, img.height * drawScale * mouseWheelRatio);   ///drawScaleをかけた画像をcanvasに描画	
-						showCropFrame(canvasElement, canvas);
-						Object.keys(ring).forEach((key) => {
-								if (ring[key].checked) {
-								addImageToCanvas(canvas, ringSrcArray[key]);
-							}
-						});
-						if (parts[count].checked) addImageToCanvas(canvas, partsSrcArray[count]);
-					};
 				};
 			}
 
