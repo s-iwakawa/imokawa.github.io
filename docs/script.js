@@ -74,7 +74,7 @@ warningCanvas.fillRect(0, 0, warningCanvasElement.width, warningCanvasElement.he
 warningCanvas.fillStyle = 'rgb(255, 255, 255)';
 warningCanvas.font = '20px "yomogi"';
 warningCanvas.textAlign = 'center';
-warningCanvas.fillText('画像をアップロードしてください', warningCanvasElement.width / 2, warningCanvasElement.height / 2);
+warningCanvas.fillText('アイコンのプレビューが表示されます', warningCanvasElement.width / 2, warningCanvasElement.height / 2);
 
 
 ///////////////
