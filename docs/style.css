@@ -195,5 +195,11 @@ input[type=radio][value="icon-parts-3"]+label:before {
     background-image: url(./img/etc_giraffe.png);
 }
 input[type=radio][value="icon-parts-4"]+label:before {
+    background-image: url(./img/etc_rocket_color.png);
+}
+input[type=radio][value="icon-parts-5"]+label:before {
+    background-image: url(./img/etc_rocket_black.png);
+}
+input[type=radio][value="icon-parts-6"]+label:before {
 	background-image: url(./img/etc_none.png);
 }
