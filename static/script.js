@@ -16,8 +16,8 @@ const partsSrcArray = [
 	"./img/etc_cat.png",
 	"./img/etc_bird.png",
 	"./img/etc_giraffe.png",
-	"./img/etc_rocket_color",
-	"./img/etc_rocket_black",
+	"./img/etc_rocket_color.png",
+	"./img/etc_rocket_black.png",
 	"./img/etc_none.png"
 ];
 const ring = document.getElementsByClassName('ring');
