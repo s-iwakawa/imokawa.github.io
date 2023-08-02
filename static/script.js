@@ -10,7 +10,8 @@ const ringSrcArray = [
 	"./img/color_7.png",
 	"./img/color_8.png",
 	"./img/color_9.png",
-	"./img/color_10.png"
+	"./img/color_10.png",
+	"./img/color_11.png"
 ];
 const partsSrcArray = [
 	"./img/etc_cat.png",
